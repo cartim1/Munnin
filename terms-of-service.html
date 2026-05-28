@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munnin — Terms of Service</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fefcf8;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text2: #555;
+    --text3: #888;
+    --accent: #c4502e;
+    --border: #e8e2d4;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.7; padding: 40px 20px;
+  }
+  .container {
+    max-width: 720px; margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 50px 60px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  }
+  .header { text-align: center; padding-bottom: 30px; border-bottom: 1px solid var(--border); margin-bottom: 35px; }
+  .brand { font-family: 'Newsreader', serif; font-size: 36px; font-weight: 700; font-variant: small-caps; letter-spacing: 0.04em; line-height: 1; }
+  .brand .accent { color: var(--accent); }
+  .motto { font-size: 11px; color: var(--text3); letter-spacing: 0.22em; text-transform: uppercase; margin-top: 8px; }
+  h1 { font-family: 'Newsreader', serif; font-size: 28px; font-weight: 700; margin-top: 30px; margin-bottom: 8px; letter-spacing: -0.01em; }
+  h2 { font-family: 'Newsreader', serif; font-size: 20px; font-weight: 700; margin-top: 28px; margin-bottom: 10px; color: var(--text); }
+  .effective { font-size: 13px; color: var(--text3); margin-bottom: 30px; }
+  p { margin-bottom: 14px; color: var(--text2); font-size: 15px; }
+  ul { margin: 10px 0 14px 0; padding-left: 22px; }
+  li { color: var(--text2); margin-bottom: 8px; font-size: 15px; }
+  strong { color: var(--text); }
+  .contact-box {
+    background: #faf6ec; border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; margin-top: 24px;
+  }
+  .contact-box p { margin: 0; font-size: 14px; }
+  .nav { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .nav a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 600; margin: 0 12px; }
+  .nav a:hover { text-decoration: underline; }
+  @media (max-width: 600px) {
+    .container { padding: 30px 22px; }
+    .brand { font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="brand">M<span class="accent">u</span>nnin</div>
+    <div class="motto">Remember what matters</div>
+  </div>
+
+  <h1>Terms of Service</h1>
+  <div class="effective">Effective: May 28, 2026</div>
+
+  <p>These Terms of Service ("Terms") govern the use of Munnin (the "Service"), a personal reminder application operated by <strong>Corey Artim</strong> ("Operator") in Dayton, OH.</p>
+
+  <h2>1. Description of Service</h2>
+  <p>Munnin is a personal task and reminder management application that runs in a web browser. The Service:</p>
+  <ul>
+    <li>Stores reminders locally in the user's browser.</li>
+    <li>Sends SMS reminders to a single phone number configured by the Operator.</li>
+    <li>Optionally processes natural-language commands using Anthropic's API.</li>
+    <li>Optionally processes inbound SMS replies for task management.</li>
+  </ul>
+  <p>The Service is operated for the Operator's personal use. It is not made available to the public and does not support multiple users or accounts.</p>
+
+  <h2>2. SMS Messaging Terms</h2>
+  <p>By configuring a phone number in the Service, the Operator consents to receive automated SMS reminders at that number. Specifically:</p>
+  <ul>
+    <li><strong>Recipients:</strong> SMS messages are sent only to the Operator's own verified phone number.</li>
+    <li><strong>Content:</strong> Messages contain task titles, due dates, optional notes, and weekly/yearly summaries created by the Operator.</li>
+    <li><strong>Frequency:</strong> Variable, based on the reminders the Operator chooses to schedule. Typically 1–10 messages per day.</li>
+    <li><strong>Carrier charges:</strong> Standard message and data rates from the recipient's wireless carrier may apply.</li>
+    <li><strong>Opt-out:</strong> The Operator may reply STOP to any message to immediately discontinue further SMS, disable SMS in the Service settings, or deactivate the Twilio phone number.</li>
+    <li><strong>Help:</strong> Reply HELP to any message for support. For other support questions, contact the Operator at the email below.</li>
+  </ul>
+
+  <h2>3. Third-Party Services</h2>
+  <p>The Service integrates with the following third-party providers, each governed by its own terms:</p>
+  <ul>
+    <li><a href="https://www.twilio.com/legal/tos">Twilio Terms of Service</a> — SMS delivery.</li>
+    <li><a href="https://www.anthropic.com/legal/consumer-terms">Anthropic Terms</a> — natural-language processing (optional).</li>
+    <li><a href="https://jsonbin.io/terms-and-conditions">JSONBin Terms</a> — inbound SMS routing (optional).</li>
+  </ul>
+  <p>The Operator is responsible for compliance with each provider's terms.</p>
+
+  <h2>4. Acceptable Use</h2>
+  <p>The Service is provided for the Operator's personal, non-commercial use. The Operator agrees not to:</p>
+  <ul>
+    <li>Use the Service to send unsolicited messages to any party other than themselves.</li>
+    <li>Use the Service for any illegal, fraudulent, harassing, or harmful purpose.</li>
+    <li>Use the Service to violate any applicable law or regulation, including the Telephone Consumer Protection Act (TCPA), CAN-SPAM, or carrier rules.</li>
+  </ul>
+
+  <h2>5. No Warranty</h2>
+  <p>The Service is provided "as is," without warranties of any kind, express or implied. The Operator makes no guarantee that messages will be delivered on time, that the Service will be available without interruption, or that the Service will be free of errors. Critical reminders should not rely solely on the Service.</p>
+
+  <h2>6. Limitation of Liability</h2>
+  <p>To the maximum extent permitted by law, the Operator shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from use of the Service, including but not limited to missed reminders, lost data, or SMS delivery failures.</p>
+
+  <h2>7. Modifications</h2>
+  <p>The Operator may modify these Terms at any time. Continued use of the Service after modifications constitutes acceptance of the revised Terms.</p>
+
+  <h2>8. Termination</h2>
+  <p>The Operator may discontinue the Service at any time. The Service may be discontinued by uninstalling the application or deactivating the configured Twilio number.</p>
+
+  <h2>9. Governing Law</h2>
+  <p>These Terms are governed by the laws of the State of Ohio, United States, without regard to conflict-of-law principles.</p>
+
+  <h2>10. Contact</h2>
+  <div class="contact-box">
+    <p><strong>Operator:</strong> Corey Artim<br>
+    <strong>Location:</strong> Dayton, OH<br>
+    <strong>Contact:</strong> cartim@yourlegalhelp.com</p>
+  </div>
+
+  <div class="nav">
+    <a href="privacy.html">Privacy Policy</a> · <a href="#top">Back to top</a>
+  </div>
+</div>
+</body>
+</html>
