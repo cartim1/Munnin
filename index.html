@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Munnin — Personal SMS Reminder App</title>
+<meta name="description" content="Munnin is a personal SMS reminder application. This page describes the SMS messaging program, including consent, message frequency, and opt-out instructions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fefcf8;
+    --surface: #ffffff;
+    --surface2: #faf6ec;
+    --text: #1a1a1a;
+    --text2: #555;
+    --text3: #888;
+    --accent: #c4502e;
+    --accent2: #a13e1f;
+    --border: #e8e2d4;
+    --green: #2d7a4f;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.7; padding: 40px 20px;
+  }
+  .container {
+    max-width: 760px; margin: 0 auto;
+  }
+  .hero {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 50px 60px 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    margin-bottom: 28px;
+  }
+  .brand { font-family: 'Newsreader', serif; font-size: 48px; font-weight: 700; font-variant: small-caps; letter-spacing: 0.04em; line-height: 1; }
+  .brand .accent { color: var(--accent); }
+  .motto { font-size: 12px; color: var(--text3); letter-spacing: 0.22em; text-transform: uppercase; margin-top: 10px; }
+  .tagline { font-family: 'Newsreader', serif; font-size: 22px; font-weight: 400; color: var(--text2); margin-top: 24px; font-style: italic; }
+
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 48px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    margin-bottom: 24px;
+  }
+  h2 { font-family: 'Newsreader', serif; font-size: 24px; font-weight: 700; margin-bottom: 14px; letter-spacing: -0.01em; }
+  h3 { font-family: 'Newsreader', serif; font-size: 18px; font-weight: 700; margin-top: 22px; margin-bottom: 10px; }
+  p { margin-bottom: 14px; color: var(--text2); font-size: 15px; }
+  strong { color: var(--text); }
+  ul { margin: 10px 0 14px 22px; }
+  li { color: var(--text2); margin-bottom: 8px; font-size: 15px; }
+
+  /* CTA form mockup */
+  .cta-card {
+    background: var(--surface2);
+    border: 2px solid var(--accent);
+    border-radius: 14px;
+    padding: 32px 36px;
+    margin-top: 8px;
+  }
+  .cta-label {
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 14px;
+  }
+  .cta-title {
+    font-family: 'Newsreader', serif; font-size: 22px; font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .cta-sub { font-size: 14px; color: var(--text2); margin-bottom: 24px; }
+  .form-row { margin-bottom: 16px; }
+  .form-row label {
+    display: block; font-size: 12px; font-weight: 600; color: var(--text2);
+    margin-bottom: 6px; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .form-row input[type="tel"] {
+    width: 100%; padding: 12px 14px;
+    border: 1px solid var(--border); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; background: #fff;
+    color: var(--text);
+  }
+  .form-row input[type="tel"]:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+  .consent-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: #fff; border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 16px; margin: 18px 0;
+  }
+  .consent-row input[type="checkbox"] {
+    margin-top: 3px; width: 16px; height: 16px; accent-color: var(--accent);
+    flex-shrink: 0;
+  }
+  .consent-text { font-size: 13px; line-height: 1.6; color: var(--text); }
+  .consent-text a { color: var(--accent); }
+  .cta-button {
+    background: var(--accent); color: #fff; border: none;
+    padding: 12px 28px; font-size: 15px; font-weight: 600;
+    border-radius: 10px; cursor: pointer; font-family: inherit;
+    margin-top: 4px;
+  }
+  .cta-button:hover { background: var(--accent2); }
+  .cta-note { font-size: 12px; color: var(--text3); margin-top: 14px; line-height: 1.5; }
+
+  /* Sample message */
+  .sample-msg {
+    background: #e9e9eb; color: #000;
+    border-radius: 14px; border-bottom-left-radius: 4px;
+    padding: 12px 16px; font-size: 14px; line-height: 1.5;
+    white-space: pre-line; max-width: 360px; margin: 10px 0;
+    font-family: -apple-system, sans-serif;
+  }
+
+  .disclosures-table {
+    width: 100%; border-collapse: collapse; margin-top: 14px;
+    font-size: 14px;
+  }
+  .disclosures-table th, .disclosures-table td {
+    text-align: left; padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .disclosures-table th {
+    background: var(--surface2); font-weight: 600; color: var(--text);
+    width: 38%;
+  }
+  .disclosures-table td { color: var(--text2); }
+
+  .links {
+    text-align: center; padding: 20px 0;
+    font-size: 14px; color: var(--text3);
+  }
+  .links a { color: var(--accent); text-decoration: none; font-weight: 600; margin: 0 14px; }
+  .links a:hover { text-decoration: underline; }
+
+  .footer {
+    text-align: center; padding: 30px 0;
+    font-size: 13px; color: var(--text3);
+    border-top: 1px solid var(--border); margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .hero, .section { padding: 28px 24px; }
+    .cta-card { padding: 22px 20px; }
+    .brand { font-size: 36px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <div class="brand">M<span class="accent">u</span>nnin</div>
+    <div class="motto">Remember what matters</div>
+    <div class="tagline">A personal SMS reminder application</div>
+  </div>
+
+  <div class="section">
+    <h2>About this program</h2>
+    <p>Munnin is a personal task and reminder application operated by <strong>Corey Artim</strong> in Dayton, Ohio. The application sends SMS message reminders to a single recipient — the operator — about tasks and events the operator has scheduled. It is operated for personal use only and is not offered as a commercial service to the public.</p>
+    <p>This page describes how SMS opt-in works, what messages the operator will receive, and how to opt out at any time.</p>
+  </div>
+
+  <div class="section">
+    <h2>SMS Opt-In</h2>
+    <p>The operator opts in to receive SMS messages by entering their own mobile phone number into the application's Settings screen and explicitly enabling SMS reminders. Below is a representation of the opt-in interface within the application:</p>
+
+    <div class="cta-card">
+      <div class="cta-label">SMS Setup — within the Munnin app</div>
+      <div class="cta-title">Enable SMS reminders</div>
+      <div class="cta-sub">Enter the mobile number that will receive your reminder messages.</div>
+
+      <div class="form-row">
+        <label for="phone">Your mobile number</label>
+        <input type="tel" id="phone" placeholder="+1 (555) 123-4567" autocomplete="off">
+      </div>
+
+      <div class="consent-row">
+        <input type="checkbox" id="consent">
+        <label for="consent" class="consent-text">
+          By checking this box and entering my mobile number, I consent to receive automated SMS message reminders from Munnin at the number provided, including reminders for tasks I have scheduled, weekly summary messages, and a yearly recap. Consent is not a condition of any purchase. <strong>Message and data rates may apply.</strong> Message frequency varies based on the reminders I schedule (typically 1–10 messages per day). I can reply <strong>STOP</strong> at any time to opt out, or <strong>HELP</strong> for help. See <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.
+        </label>
+      </div>
+
+      <button type="button" class="cta-button" onclick="alert('This is a demonstration of the opt-in flow that occurs within the Munnin application. Actual enrollment happens by configuring your phone number in the application Settings.');">Enable SMS Reminders</button>
+
+      <div class="cta-note">
+        Note: Munnin is a personal application; this form is a representation of the in-app opt-in flow. Enrollment is performed by the operator within the application's Settings screen by entering their own phone number and toggling SMS on.
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>SMS Program Details</h2>
+    <table class="disclosures-table">
+      <tr><th>Program name</th><td>Munnin Personal Reminders</td></tr>
+      <tr><th>Operator</th><td>Corey Artim · Dayton, OH</td></tr>
+      <tr><th>Recipients</th><td>Single recipient: the operator only</td></tr>
+      <tr><th>Message types</th><td>Task reminders, weekly digest, yearly recap, two-way reply confirmations</td></tr>
+      <tr><th>Message frequency</th><td>Variable; typically 1–10 messages per day, depending on the operator's configured reminders</td></tr>
+      <tr><th>Cost</th><td>Standard message and data rates from your wireless carrier may apply</td></tr>
+      <tr><th>Opt-in method</th><td>Operator enters their own phone number in the Munnin application's Settings screen and toggles SMS reminders on</td></tr>
+      <tr><th>Opt-out method</th><td>Reply <strong>STOP</strong> to any message · Disable SMS in app Settings · Deactivate the Twilio number</td></tr>
+      <tr><th>Help</th><td>Reply <strong>HELP</strong> to any message, or contact the operator at <a href="mailto:cartim@yourlegalhelp.com">cartim@yourlegalhelp.com</a></td></tr>
+      <tr><th>Supported carriers</th><td>All major US carriers via Twilio</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Example Messages</h2>
+    <p>The operator will receive messages similar to the following examples:</p>
+
+    <h3>Task reminder</h3>
+    <div class="sample-msg">⏰ Reminder: Pay rent
+📅 Due: Jun 1, 2026 9:00 AM
+📝 Auto-pay should run; verify in account
+
+Reply: done · snooze 1h · skip · list
+Reply STOP to opt out.</div>
+
+    <h3>Weekly digest (Sunday evenings)</h3>
+    <div class="sample-msg">🪶 Munnin Weekly
+
+This past week: 8 completed.
+
+Coming up this week:
+• Pay rent (Mon)
+• Team standup (Tue)
+• Doctor visit (Thu)
+
+Reply "skip X" to drop any of these for the week.
+Reply STOP to opt out.</div>
+
+    <h3>Yearly recap (December 31)</h3>
+    <div class="sample-msg">🪶 Your 2026 Munnin Wrapped
+
+You remembered 247 things this year.
+
+Most-done: "Call mom" (51×)
+Longest streak: Pay rent (12 months)
+Busiest month: April
+
+Here's to remembering what matters in 2027. 🪶
+Reply STOP to opt out.</div>
+  </div>
+
+  <div class="section">
+    <h2>STOP and HELP</h2>
+    <p>The operator can opt out of receiving SMS messages at any time by replying <strong>STOP</strong> to any message. Once STOP is received, the Twilio platform will immediately stop sending further SMS messages to that number and respond with a confirmation. To resume messages later, the operator may reply <strong>START</strong>.</p>
+    <p>The operator can request help at any time by replying <strong>HELP</strong>, or by contacting the operator directly at <a href="mailto:cartim@yourlegalhelp.com">cartim@yourlegalhelp.com</a>.</p>
+  </div>
+
+  <div class="links">
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </div>
+
+  <div class="footer">
+    Operated by Corey Artim · Dayton, OH · <a href="mailto:cartim@yourlegalhelp.com" style="color:var(--accent);">cartim@yourlegalhelp.com</a>
+  </div>
+
+</div>
+</body>
+</html>
